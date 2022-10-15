@@ -20,3 +20,11 @@ type Icon struct {
 	Guidelines string  `json:"guidelines"`
 	License    License `json:"license"`
 }
+
+func GetIcon(iconName string) Icon {
+	return Icon{Title: "title"}
+}
+
+func IconToJson(icon Icon) string {
+	return ""
+}
