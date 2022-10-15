@@ -5,6 +5,21 @@
 
 package lib
 
-func TitleToSlug() string {
-	return ""
+import "strings"
+
+func TitleToSlug(title string) string {
+	var lowerTitle = strings.ToLower(title)
+	replacer := strings.NewReplacer(
+		".", "dot",
+		"+", "plus",
+		"&", "and",
+		"đ", "d",
+		"ħ", "h",
+		"ı", "i",
+		"ĸ", "k",
+		"ŀ", "l",
+		"ł", "l",
+		"ß", "ss",
+		"ŧ", "t")
+	return replacer.Replace(lowerTitle)
 }
