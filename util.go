@@ -5,7 +5,11 @@
 
 package lib
 
-import "strings"
+import (
+	"io/ioutil"
+	"log"
+	"strings"
+)
 
 func TitleToSlug(title string) string {
 	var lowerTitle = strings.ToLower(title)
@@ -23,4 +27,21 @@ func TitleToSlug(title string) string {
 		"ß", "ss",
 		"ŧ", "t")
 	return replacer.Replace(lowerTitle)
+}
+
+func readFile(filePath string) []byte {
+	fileContent, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return fileContent
+}
+
+func ReadDataJsonFile() string {
+	return string(readFile("data/simple-icons.json"))
+}
+
+func ReadSvgFile(filename string) string {
+	return string(readFile("data/icons/" + filename + ".svg"))
 }
