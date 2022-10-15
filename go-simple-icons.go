@@ -21,10 +21,12 @@ type Icon struct {
 	License    License `json:"license"`
 }
 
+// GetIcon Returns the Icon Object
 func GetIcon(iconName string) Icon {
 	return Icon{Title: "title"}
 }
 
+// IconToJson Return the Icon structure as JSON string
 func IconToJson(icon Icon) string {
 	return ""
 }
