@@ -10,6 +10,7 @@ import "strings"
 func TitleToSlug(title string) string {
 	var lowerTitle = strings.ToLower(title)
 	replacer := strings.NewReplacer(
+		" ", "",
 		".", "dot",
 		"+", "plus",
 		"&", "and",

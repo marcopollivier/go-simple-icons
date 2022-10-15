@@ -51,4 +51,12 @@ func TestTitleToSlug(testing *testing.T) {
 		testing.Error("Error to convert a regular string with ŧ")
 	}
 
+	if TitleToSlug("Simple Icons") != "simpleicons" {
+		testing.Error("Error to convert a regular string with white spaces")
+	}
+
+	if TitleToSlug("Simple Icons ßŧ") != "simpleiconssst" {
+		testing.Error("Error to convert a regular string with multiple replaces")
+	}
+
 }
