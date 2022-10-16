@@ -13,7 +13,7 @@
 ## Usage 
 
 ````shell
-go get github.com/marcopollivier/go-simple-icons@v0.0.1
+go get github.com/marcopollivier/go-simple-icons
 ````
 
 ```go
