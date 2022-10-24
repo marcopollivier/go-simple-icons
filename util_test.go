@@ -8,59 +8,59 @@ package lib
 import "testing"
 
 func TestTitleToSlug(testing *testing.T) {
-	if TitleToSlug("Default") != "default" {
+	if titleToSlug("Default") != "default" {
 		testing.Error("Error to convert a regular string")
 	}
 
-	if TitleToSlug("Default+") != "defaultplus" {
+	if titleToSlug("Default+") != "defaultplus" {
 		testing.Error("Error to convert a regular string with +")
 	}
 
-	if TitleToSlug("Default.") != "defaultdot" {
+	if titleToSlug("Default.") != "defaultdot" {
 		testing.Error("Error to convert a regular string with .")
 	}
 
-	if TitleToSlug("Default&") != "defaultand" {
+	if titleToSlug("Default&") != "defaultand" {
 		testing.Error("Error to convert a regular string with &")
 	}
 
-	if TitleToSlug("Defaultđ") != "defaultd" {
+	if titleToSlug("Defaultđ") != "defaultd" {
 		testing.Error("Error to convert a regular string with đ")
 	}
 
-	if TitleToSlug("Defaultħ") != "defaulth" {
+	if titleToSlug("Defaultħ") != "defaulth" {
 		testing.Error("Error to convert a regular string with ħ")
 	}
 
-	if TitleToSlug("Defaultı") != "defaulti" {
+	if titleToSlug("Defaultı") != "defaulti" {
 		testing.Error("Error to convert a regular string with ı")
 	}
 
-	if TitleToSlug("Defaultĸ") != "defaultk" {
+	if titleToSlug("Defaultĸ") != "defaultk" {
 		testing.Error("Error to convert a regular string with ĸ")
 	}
 
-	if TitleToSlug("Defaultŀ") != "defaultl" {
+	if titleToSlug("Defaultŀ") != "defaultl" {
 		testing.Error("Error to convert a regular string with ŀ")
 	}
 
-	if TitleToSlug("Defaultł") != "defaultl" {
+	if titleToSlug("Defaultł") != "defaultl" {
 		testing.Error("Error to convert a regular string with ł")
 	}
 
-	if TitleToSlug("Defaultß") != "defaultss" {
+	if titleToSlug("Defaultß") != "defaultss" {
 		testing.Error("Error to convert a regular string with ß")
 	}
 
-	if TitleToSlug("Defaultŧ") != "defaultt" {
+	if titleToSlug("Defaultŧ") != "defaultt" {
 		testing.Error("Error to convert a regular string with ŧ")
 	}
 
-	if TitleToSlug("Simple Icons") != "simpleicons" {
+	if titleToSlug("Simple Icons") != "simpleicons" {
 		testing.Error("Error to convert a regular string with white spaces")
 	}
 
-	if TitleToSlug("Simple Icons ßŧ") != "simpleiconssst" {
+	if titleToSlug("Simple Icons ßŧ") != "simpleiconssst" {
 		testing.Error("Error to convert a regular string with multiple replaces")
 	}
 

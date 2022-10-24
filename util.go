@@ -11,9 +11,8 @@ import (
 	"strings"
 )
 
-func TitleToSlug(title string) string {
-	var lowerTitle = strings.ToLower(title)
-	replacer := strings.NewReplacer(
+func replaceSpecialCharacteres() *strings.Replacer {
+	return strings.NewReplacer(
 		" ", "",
 		".", "dot",
 		"+", "plus",
@@ -26,7 +25,6 @@ func TitleToSlug(title string) string {
 		"ł", "l",
 		"ß", "ss",
 		"ŧ", "t")
-	return replacer.Replace(lowerTitle)
 }
 
 func readFile(filePath string) []byte {
@@ -38,10 +36,12 @@ func readFile(filePath string) []byte {
 	return fileContent
 }
 
+// ReadDataJsonFile return as string the data JSON file content
 func ReadDataJsonFile() string {
 	return string(readFile("data/simple-icons.json"))
 }
 
+// ReadSvgFile return as string the data of the SVG file content
 func ReadSvgFile(filename string) string {
 	return string(readFile("data/icons/" + filename + ".svg"))
 }

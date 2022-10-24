@@ -8,6 +8,7 @@ package lib
 import (
 	"encoding/json"
 	"errors"
+	"strings"
 )
 
 type License struct {
@@ -30,7 +31,7 @@ type Icons struct {
 	Icons []Icon `json:"icons"`
 }
 
-func mapIconsBaseInformation() (Icons, error) {
+func dataJsonToIcons() (Icons, error) {
 	var fileContent = ReadDataJsonFile()
 
 	data := Icons{}
@@ -41,7 +42,7 @@ func mapIconsBaseInformation() (Icons, error) {
 	return data, nil
 }
 
-func findIcon(title string, icons Icons) (result *Icon) {
+func findIconByTitle(title string, icons Icons) (result *Icon) {
 	result = nil
 	for _, icon := range icons.Icons {
 		if icon.Title == title {
@@ -52,16 +53,20 @@ func findIcon(title string, icons Icons) (result *Icon) {
 	return result
 }
 
+func titleToSlug(title string) string {
+	var lowerTitle = strings.ToLower(title)
+	return replaceSpecialCharacteres().Replace(lowerTitle)
+}
+
 // GetIcon Returns the Icon Object
 func GetIcon(iconName string) (*Icon, error) {
-	icons, err := mapIconsBaseInformation()
+	icons, err := dataJsonToIcons()
 	if err != nil {
 		return nil, err
 	}
 
-	icon := findIcon(iconName, icons)
-
-	slug := TitleToSlug(icon.Title)
+	icon := findIconByTitle(iconName, icons)
+	slug := titleToSlug(icon.Title)
 	icon.Svg = ReadSvgFile(slug)
 
 	return icon, nil
