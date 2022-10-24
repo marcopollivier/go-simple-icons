@@ -55,7 +55,7 @@ func findIconByTitle(title string, icons Icons) (result *Icon) {
 
 func titleToSlug(title string) string {
 	var lowerTitle = strings.ToLower(title)
-	return replaceSpecialCharacteres().Replace(lowerTitle)
+	return replaceSpecialCharacteres(lowerTitle)
 }
 
 // GetIcon Returns the Icon Object

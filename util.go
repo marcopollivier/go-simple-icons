@@ -11,8 +11,8 @@ import (
 	"strings"
 )
 
-func replaceSpecialCharacteres() *strings.Replacer {
-	return strings.NewReplacer(
+func replaceSpecialCharacteres(original string) string {
+	var replacer = strings.NewReplacer(
 		" ", "",
 		".", "dot",
 		"+", "plus",
@@ -25,6 +25,7 @@ func replaceSpecialCharacteres() *strings.Replacer {
 		"ł", "l",
 		"ß", "ss",
 		"ŧ", "t")
+	return replacer.Replace(original)
 }
 
 func readFile(filePath string) []byte {
