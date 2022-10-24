@@ -32,4 +32,6 @@ func main() {
 
 ## License
 
-MIT
+
+
+[![License](https://img.shields.io/github/license/marcopollivier/go-simple-icons?style=flat)]()
